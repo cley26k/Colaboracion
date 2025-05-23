@@ -144,34 +144,34 @@ body {
 
 /* Efecto Glass */
 .glass-effect {
-    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente, más sutil */
     backdrop-filter: blur(15px); /* Efecto de desenfoque */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde suave */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde suave, más sutil */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Sombra para profundidad, más sutil */
     border-radius: 20px; /* Bordes redondeados */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: white; /* El container en sí es blanco para contener los elementos */
     border-radius: 25px; /* Bordes más redondeados */
     padding: 40px; /* Aumentar padding */
     box-shadow: 0 25px 50px rgba(0,0,0,0.15); /* Sombra más pronunciada */
     overflow: hidden; /* Para contener la animación del fondo */
 }
 
-/* Página de Presentación */
+/* --- Página de Presentación (Portada) --- */
 .presentation-page {
     text-align: center;
-    padding: 60px 30px; /* Aumentar padding */
+    padding: 80px 40px; /* Aumentar aún más padding */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-radius: 20px;
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
-    transition: all 0.5s ease-in-out; /* Transición para un cambio de estado */
+    transition: all 0.5s ease-in-out;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
@@ -187,10 +187,24 @@ body {
         45deg,
         transparent,
         transparent 2px,
-        rgba(255,255,255,0.05) 2px, /* Ligero cambio de color */
+        rgba(255,255,255,0.05) 2px, 
         rgba(255,255,255,0.05) 4px
     );
-    animation: float-bg 30s infinite linear; /* Velocidad más lenta */
+    animation: float-bg 30s infinite linear;
+    z-index: 1;
+}
+
+/* Textura/Patrón adicional para la portada */
+.presentation-page::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgNzAgNzUuOTMiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNodXJoYW5kIj0iY29tLnNodXJoYW5kIj4KPGRlZnM+PGltYWdlIGlkPSJhIiB3aWR0aD0iNzAiIGhlaWdodD0iNzEuOTMiIHJsaW5rPSJodHRwczovL3JlbWFwcGluZy5yZWRibHVlLmNvbS9kb2NzL2NvbXBvbmVudHMvcGF0dGVybnMvY29sb3JmdWxfZ2lybHlfYWJzdHJhY3RfcGF0dGVybi5zdmciLz4KPGRlZnM+PHByb2plY3RpdmVJbWFnZSBpZD0iYiIgd2lkdGg9IjcwIiBoZWlnaHQ9Ijc1LjkzIiBpbWFnZT0iYSIgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgMSAwIC0yLjAxNzI5OSkiLz4KPC9kZWZzPgo8dXNlIHhsaW5rOmhyZWY9IiNiIiBvcGFjaXR5PSIwLjEiLz4KPC9zdmc+') repeat; /* Patrón de fondo sutil (ej: círculos concéntricos o abstractos) */
+    background-size: 200px; /* Tamaño del patrón */
+    opacity: 0.15; /* Opacidad del patrón */
     z-index: 1;
 }
 
@@ -199,59 +213,85 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-.presentation-page * { /* Asegurar que el contenido esté sobre la animación */
+.presentation-page * { 
     position: relative;
     z-index: 2;
 }
 
 .university-logo {
-    font-size: 4.5em; /* Icono más grande */
-    margin-bottom: 25px; /* Espaciado más */
-    text-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    color: #ffd700; /* Color dorado para el gorro */
+    font-size: 5.5em; /* Icono mucho más grande */
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffd700, #ff8c00); /* Degradado dorado para el icono */
+    -webkit-background-clip: text; /* Aplica el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para ver el degradado */
+    text-shadow: 0 8px 15px rgba(0,0,0,0.3); /* Sombra dramática */
+    transition: all 0.3s ease;
+}
+.university-logo:hover {
+    transform: scale(1.05) translateY(-5px);
 }
 
 .course-title {
-    font-family: 'Montserrat', sans-serif; /* Nueva fuente para títulos */
-    font-size: 2.8em; /* Tamaño más grande */
-    font-weight: 800; /* Negrita más marcada */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em; /* Tamaño mucho más grande */
+    font-weight: 800;
     margin-bottom: 20px;
-    text-shadow: 3px 4px 7px rgba(0,0,0,0.4);
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #182848, #4b74a0); /* Degradado al título */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 3px 4px 7px rgba(0,0,0,0.5); /* Sombra más fuerte */
+    transition: all 0.3s ease;
+}
+.course-title:hover {
+    transform: translateY(-5px);
 }
 
 .assignment-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.2em; /* Tamaño más grande */
+    font-size: 2.5em; /* Tamaño más grande */
     margin-bottom: 40px;
     font-style: italic;
     opacity: 0.95;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    border-bottom: 2px solid rgba(255,255,255,0.5); /* Línea decorativa */
-    padding-bottom: 10px;
-    display: inline-block; /* Para que la línea se ajuste al texto */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    border-bottom: 2px solid rgba(255,255,255,0.7); /* Línea decorativa más prominente */
+    padding-bottom: 12px;
+    display: inline-block;
+    color: #f0f0f0; /* Color ligeramente más claro */
 }
 
-.institution-details {
+.institution-details { /* Ya tiene glass-effect */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 20px;
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15); /* Match glass-effect */
+    padding: 25px;
+    border-radius: 18px;
     margin: 30px auto;
-    max-width: 600px;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    backdrop-filter: blur(8px);
+    max-width: 650px; /* Ancho un poco mayor */
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.institution-details:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .institution-logo {
-    width: 80px; /* Tamaño del logo */
+    width: 90px; /* Tamaño del logo */
     height: auto;
-    margin-right: 20px;
-    border-radius: 8px; /* Ligero redondeado */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    margin-right: 25px;
+    border-radius: 10px;
+    border: 3px solid rgba(255,255,255,0.4); /* Borde blanco sutil */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+.institution-logo:hover {
+    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
+    opacity: 0.8; /* Opacidad para efecto subtle */
 }
 
 .institution-text {
@@ -260,84 +300,92 @@ body {
 
 .institution-text h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em;
-    margin-bottom: 5px;
+    font-size: 1.6em;
+    margin-bottom: 8px;
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .institution-text p {
-    font-size: 1.1em;
+    font-size: 1.15em;
     opacity: 0.9;
+    color: #f5f5f5;
 }
 
+/* Aplicar glass-effect a todos los bloques de información */
 .student-info, .professor-info, .date-info {
-    font-size: 1.25em; /* Tamaño consistente */
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 1.25em; 
+    margin: 20px auto; /* Centrar y margen consistente */
+    max-width: 550px;
+    padding: 25px; /* Más padding */
+    text-shadow: none; /* Mejor con glass-effect */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+    flex-direction: row; /* Mantener en fila por defecto */
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.25); /* Borde sutil */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-.student-info { /* Ya tiene glass-effect */
-    padding: 30px; /* Más padding */
-    margin: 30px auto;
-    max-width: 550px; /* Ancho un poco mayor */
-    flex-direction: column; /* Apilar elementos en móvil */
+.student-info:hover, .professor-info:hover, .date-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.student-name, .student-id { /* Para separar la matrícula */
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .student-name {
-    font-size: 1.6em; /* Un poco más grande */
+    font-size: 1.6em;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 0; /* Quitar margen que separaba al mat */
 }
-
-.student-id {
-    font-size: 1.3em;
-    opacity: 0.9;
-}
+.student-info { flex-direction: column; } /* Forzar column en student-info */
 
 .professor-info {
-    margin-top: 30px;
     font-size: 1.15em;
     font-weight: 600;
+    margin-top: 30px;
 }
 
 .date-info {
-    margin-top: 20px;
     font-size: 1.05em;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 /* Iconos dentro del texto */
-.student-info i, .professor-info i, .date-info i, .comments-title i, .trivia-title i, .print-button i, .nav-button i, .branch-item i {
-    margin-right: 5px;
-    color: rgba(255,255,255,0.8); /* Color para iconos en la portada */
+.student-info i, .professor-info i, .date-info i {
+    margin-right: 0; /* Ya hay gap */
+    color: #c9c9c9; /* Color gris claro para uniformidad */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
-/* Asegura que los iconos en los comentarios y ramas no tengan el color de la portada */
 .comments-title i, .branch-item i {
-    color: inherit; /* Hereda el color del texto circundante */
+    color: inherit; 
 }
 
-/* Header General para Contenido */
+
+/* --- Contenido Principal (Organizador Gráfico) --- */
 .header {
     text-align: center;
-    margin-bottom: 50px; /* Más espacio */
+    margin-bottom: 50px;
 }
 
 .main-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.2em; /* Más grande */
+    font-size: 3.2em;
     color: #2c3e50;
-    margin-bottom: 15px; /* Más espacio */
-    text-shadow: 2px 3px 6px rgba(0,0,0,0.15); /* Sombra ligeramente más suave */
-    font-weight: 800; /* Más negrita */
+    margin-bottom: 15px;
+    text-shadow: 2px 3px 6px rgba(0,0,0,0.15);
+    font-weight: 800;
 }
 
 .subtitle {
-    font-size: 1.3em; /* Más grande */
+    font-size: 1.3em;
     color: #7f8c8d;
     font-style: italic;
     font-weight: 600;
@@ -348,31 +396,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px; /* Más espacio entre elementos */
+    gap: 40px;
     position: relative;
-    padding-bottom: 20px; /* Espacio extra para la animación */
+    padding-bottom: 20px;
 }
 
 .central-concept { /* Ya tiene glass-effect */
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: linear-gradient(45deg, #3498db, #2980b9); /* Degradado más intenso */
     color: white;
-    padding: 30px 45px; /* Más padding */
-    border-radius: 60px; /* Más redondeado, forma de pastilla */
+    padding: 35px 50px; /* Más padding para que sea más grande */
+    border-radius: 60px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.2em; /* Más grande */
+    font-size: 2.5em; /* Mucho más grande */
     font-weight: 800;
     text-align: center;
-    box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4); /* Sombra más grande y marcada */
+    box-shadow: 0 15px 45px rgba(52, 152, 219, 0.6); /* Sombra más grande y marcada */
     position: relative;
     z-index: 10;
-    transition: all 0.4s ease; /* Transición más suave */
-    letter-spacing: 1px; /* Ligeramente más espaciado */
-    overflow: hidden; /* Para el anillo */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    letter-spacing: 2px; /* Más espaciado */
+    overflow: visible; /* Permitir que el anillo se vea */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 .central-concept:hover {
-    transform: scale(1.08) translateY(-5px); /* Efecto de levitación y escala */
-    box-shadow: 0 18px 45px rgba(52, 152, 219, 0.5); /* Sombra al flotar */
+    transform: scale(1.1) translateY(-8px); /* Efecto de levitación y escala */
+    box-shadow: 0 25px 60px rgba(52, 152, 219, 0.7); /* Sombra al flotar */
 }
 
 .concept-ring { /* Anillo decorativo para central concept */
@@ -381,11 +430,11 @@ body {
     left: 50%;
     width: 100%;
     height: 100%;
-    border: 5px solid rgba(255,255,255,0.3);
+    border: 5px solid rgba(255,255,255,0.5); /* Borde más visible */
     border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(0.8); /* Inicia más pequeño */
     opacity: 0;
-    animation: pulse-ring 2s infinite ease-out;
+    animation: pulse-ring 2.5s infinite cubic-bezier(0.5, 0, 0.5, 1); /* Anillo más notorio */
 }
 
 @keyframes pulse-ring {
@@ -393,8 +442,11 @@ body {
         transform: translate(-50%, -50%) scale(0.8);
         opacity: 0.7;
     }
+    40% {
+        opacity: 0.4;
+    }
     100% {
-        transform: translate(-50%, -50%) scale(1.5);
+        transform: translate(-50%, -50%) scale(1.8); /* Termina más grande */
         opacity: 0;
     }
 }
@@ -402,69 +454,60 @@ body {
 
 .branches-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min-width ajustado para más contenido */
-    gap: 35px; /* Más espacio */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min-width ajustado */
+    gap: 40px; /* Más espacio */
     width: 100%;
     margin-top: 20px;
 }
 
 .branch { /* Ya tiene glass-effect */
-    background: white;
-    border-radius: 20px; /* Más redondeado */
-    padding: 30px; /* Más padding */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra más suave */
-    border-left: 6px solid; /* Borde más grueso */
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Curva de transición elegante */
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); /* Degradado para glassmorphism */
+    border-radius: 25px; /* Más redondeado aún */
+    padding: 35px; /* Más padding */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1); /* Sombra más suave */
+    border-left: 8px solid; /* Borde más grueso */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
-    overflow: hidden; /* Para posibles efectos internos si los hubiera */
+    overflow: hidden;
+    border-bottom: 2px solid rgba(255,255,255,0.2); /* Borde inferior sutil */
 }
 
 .branch:hover {
-    transform: translateY(-10px); /* Efecto de levitación */
-    box-shadow: 0 18px 45px rgba(0,0,0,0.15); /* Sombra más fuerte al flotar */
+    transform: translateY(-12px); /* Efecto de levitación más pronunciado */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2); /* Sombra más fuerte al flotar */
+    border-bottom-color: rgba(255,255,255,0.4);
 }
 
 /* Colores de ramas personalizados */
-.branch.caracteristicas {
-    border-left-color: #e74c3c;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(255,240,237, 0.25) 100%);
-}
-.branch.beneficios {
-    border-left-color: #27ae60;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(232,251,237, 0.25) 100%);
-}
-.branch.tipos {
-    border-left-color: #f39c12;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(255,251,230, 0.25) 100%);
-}
-.branch.elementos {
-    border-left-color: #9b59b6;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(246,239,251, 0.25) 100%);
-}
+.branch.caracteristicas { border-left-color: #e74c3c; }
+.branch.beneficios { border-left-color: #27ae60; }
+.branch.tipos { border-left-color: #f39c12; }
+.branch.elementos { border-left-color: #9b59b6; }
 
 .branch-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.6em; /* Más grande */
+    font-size: 1.8em; /* Más grande */
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Más espacio */
     color: #2c3e50;
     display: flex;
     align-items: center;
-    gap: 12px; /* Más espacio entre icono y texto */
-    text-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Sombra para títulos */
+    gap: 15px; /* Más espacio entre icono y texto */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .branch-icon {
-    min-width: 48px; /* Tamaño mínimo para asegurar el círculo */
-    height: 48px;
+    min-width: 55px; /* Tamaño mínimo para asegurar el círculo */
+    height: 55px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-weight: 600;
-    font-size: 1.5em; /* Icono más grande */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra para el icono del título */
+    font-size: 1.8em; /* Icono más grande */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25); /* Sombra para el icono del título */
+    border: 3px solid rgba(255,255,255,0.4); /* Borde blanco alrededor del icono */
 }
 
 /* Colores de iconos de rama */
@@ -478,21 +521,21 @@ body {
 }
 
 .branch-item {
-    background: rgba(255,255,255,0.9); /* Ligeramente más opaco inicialmente */
-    margin: 12px 0; /* Más espacio */
-    padding: 18px 20px; /* Más padding */
-    border-radius: 12px; /* Más redondeado */
-    border-left: 5px solid; /* Borde más grueso */
-    font-size: 1em; /* Ajuste para mejor lectura */
-    line-height: 1.7; /* Aumentar interlineado */
-    transition: all 0.3s ease-out; /* Transición más suave y rápida */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra base para los items */
+    background: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(240,240,240,0.85) 100%); /* Degradado sutil */
+    margin: 15px 0; /* Más espacio */
+    padding: 20px 25px; /* Más padding */
+    border-radius: 15px; /* Más redondeado */
+    border-left: 6px solid; /* Borde más grueso */
+    font-size: 1.05em; /* Ligeramente más grande */
+    line-height: 1.7;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* Sombra base para los items */
 }
 
 .branch-item:hover {
     background: white; /* Blanco puro al pasar el ratón */
-    transform: translateX(10px); /* Desplazamiento más pronunciado */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Sombra más fuerte al flotar */
+    transform: translateX(12px); /* Desplazamiento más pronunciado */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra más fuerte al flotar */
 }
 
 /* Colores de borde de ítems de rama */
@@ -501,146 +544,160 @@ body {
 .tipos .branch-item { border-left-color: #f39c12; }
 .elementos .branch-item { border-left-color: #9b59b6; }
 
+
 /* Caja de Definición */
 .definition-box { /* Ya tiene glass-effect */
-    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    background: linear-gradient(135deg, #74b9ff, #0984e3); /* Degradado más vibrante */
     color: white;
-    padding: 35px; /* Más padding */
-    margin: 35px 0; /* Más margen */
+    padding: 40px; /* Más padding */
+    margin: 40px 0; /* Más margen */
     text-align: center;
-    box-shadow: 0 12px 35px rgba(116, 185, 255, 0.4); /* Sombra más marcada */
+    box-shadow: 0 15px 40px rgba(116, 185, 255, 0.5); /* Sombra más marcada */
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .definition-text {
-    font-size: 1.25em; /* Un poco más grande */
-    line-height: 1.8; /* Mayor interlineado para legibilidad */
+    font-size: 1.35em; /* Mucho más grande */
+    line-height: 1.8;
     font-style: italic;
-    font-weight: 300; /* Más ligero */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.15); /* Sombra sutil para legibilidad */
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-/* Sección de Comentarios */
-.comments-section { /* Ya tiene glass-effect */
-    background: #f8f9fa;
-    border-left: 6px solid #6c5ce7; /* Borde más grueso */
-    padding: 35px;
-    margin: 45px 0;
+
+/* --- Sección de Comentarios --- */
+.comments-section { 
+    background: rgba(248,249,250,0.9); /* Fondo ligeramente opaco */
+    border-left: 6px solid #6c5ce7;
+    padding: 40px;
+    margin: 50px 0;
+    /* Remover glass-effect directo para usar solo el fondo blanco */
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 20px;
 }
 
 .comments-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2em; /* Más grande */
+    font-size: 2.2em;
     color: #2d3436;
-    margin-bottom: 25px; /* Más espacio */
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     font-weight: 700;
 }
 
 .comment-box {
     background: white;
-    border-radius: 15px; /* Más redondeado */
-    padding: 25px; /* Más padding */
-    margin: 20px 0; /* Más margen */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Sombra suave */
-    border-left: 5px solid #6c5ce7; /* Borde más grueso */
+    border-radius: 18px; /* Más redondeado */
+    padding: 30px; /* Más padding */
+    margin: 25px 0; /* Más margen */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Sombra suave */
+    border-left: 6px solid #a29bfe; /* Borde más grueso y color armónico */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .comment-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
 }
 
 .comment-text {
     line-height: 1.7;
-    color: #4a4a4a; /* Color de texto más oscuro */
-    margin-bottom: 12px; /* Más espacio */
-    font-size: 1.05em;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    font-size: 1.1em;
 }
 
 .comment-author {
-    font-size: 0.95em; /* Ligeramente más grande */
+    font-size: 1em;
     color: #636e72;
     font-style: italic;
-    text-align: right; /* Alineado a la derecha */
+    text-align: right;
 }
 
-/* Trivia Interactiva */
+
+/* --- Trivia Interactiva --- */
 .trivia-section {
     background: linear-gradient(135deg, #fd79a8, #e84393); /* Gradiente más vibrante */
     color: white;
-    border-radius: 20px;
-    padding: 40px; /* Más padding */
-    margin: 45px 0;
+    border-radius: 25px; /* Más redondeado */
+    padding: 50px; /* Mucho más padding */
+    margin: 60px 0;
     text-align: center;
-    box-shadow: 0 15px 40px rgba(224, 76, 155, 0.3); /* Sombra marcada */
+    box-shadow: 0 20px 50px rgba(224, 76, 155, 0.4); /* Sombra marcada y grande */
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .trivia-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em; /* Más grande */
-    margin-bottom: 25px;
+    font-size: 2.8em; /* Más grande */
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    text-shadow: 2px 2px 7px rgba(0,0,0,0.4);
 }
 
 .trivia-section > p {
-    font-size: 1.15em;
-    margin-bottom: 30px;
-    opacity: 0.9;
+    font-size: 1.25em; /* Más grande */
+    margin-bottom: 40px;
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
 }
 
 .question-container { /* Ya tiene glass-effect */
-    background: rgba(255,255,255,0.2); /* Ligeramente más opaco */
-    padding: 30px; /* Más padding */
-    margin: 25px auto; /* Centrar y más margen */
-    max-width: 700px; /* Limitar ancho para mejor lectura */
+    background: rgba(255,255,255,0.25); /* Ligeramente más opaco */
+    padding: 35px; /* Más padding */
+    margin: 30px auto; /* Centrar y más margen */
+    max-width: 750px; /* Limitar ancho para mejor lectura */
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .question {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em; /* Más grande */
-    margin-bottom: 25px;
+    font-size: 1.8em; /* Más grande */
+    margin-bottom: 30px;
     font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 }
 
 .options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Min-width ajustado */
-    gap: 20px; /* Más espacio */
-    margin: 20px 0;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Min-width ajustado */
+    gap: 25px; /* Más espacio */
+    margin: 25px 0;
 }
 
 .option {
-    background: rgba(255,255,255,0.25); /* Un poco más opaco */
-    border: 2px solid rgba(255,255,255,0.4); /* Borde más pronunciado */
+    background: rgba(255,255,255,0.3); /* Un poco más opaco */
+    border: 3px solid rgba(255,255,255,0.5); /* Borde más pronunciado */
     color: white;
-    padding: 18px 25px; /* Más padding */
-    border-radius: 12px; /* Más redondeado */
+    padding: 20px 28px; /* Más padding */
+    border-radius: 15px; /* Más redondeado */
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.1em; /* Más grande */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-size: 1.2em; /* Más grande */
     font-weight: 600;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .option:hover {
-    background: rgba(255,255,255,0.4); /* Más opaco al hover */
-    transform: translateY(-5px) scale(1.02); /* Efecto de levitación y pequeño aumento */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.5); /* Más opaco al hover */
+    transform: translateY(-8px) scale(1.03); /* Efecto de levitación y pequeño aumento */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .option.correct {
     background: #00b894; /* Verde más vivo */
     border-color: #00a085;
-    transform: scale(1.05); /* Escala al ser correcto */
-    box-shadow: 0 0 15px rgba(0,184,148,0.5); /* Sombra brillante */
+    transform: scale(1.06); /* Escala al ser correcto */
+    box-shadow: 0 0 20px rgba(0,184,148,0.7); /* Sombra brillante y grande */
 }
 
 .option.incorrect {
@@ -651,46 +708,78 @@ body {
 
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-5px); }
-    40%, 80% { transform: translateX(5px); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
 }
 
 .trivia-result { /* Ya tiene glass-effect */
-    margin-top: 30px; /* Más espacio */
-    padding: 20px;
-    font-size: 1.3em; /* Más grande */
+    margin-top: 40px;
+    padding: 25px;
+    font-size: 1.5em; /* Más grande */
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
 
 .trivia-score { /* Ya tiene glass-effect */
-    background: rgba(255,255,255,0.3);
-    padding: 18px;
-    margin-top: 20px;
-    font-size: 1.4em; /* Más grande */
+    background: rgba(255,255,255,0.4);
+    padding: 22px;
+    margin-top: 25px;
+    font-size: 1.6em; /* Más grande */
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
 
-/* Footer */
-.footer { /* Ya tiene glass-effect */
+/* --- Pie de Página (Footer) --- */
+.footer { 
     text-align: center;
-    margin-top: 50px; /* Más espacio */
-    padding: 25px;
-    background: #f0f2f5; /* Fondo más claro */
-    color: #6c757d;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    font-size: 0.95em;
+    margin-top: 60px; /* Más espacio */
+    padding: 30px 20px 15px; /* Padding ajustado */
+    background: linear-gradient(180deg, #f0f2f5 0%, #e0e2e5 100%); /* Degradado suave */
+    color: #4a4a4a;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra que "eleva" el footer */
+    border-top: 3px solid #dcdfe3; /* Borde superior para definir la "cinta" */
+    position: relative;
+    overflow: hidden;
 }
 
-.footer p {
-    margin-bottom: 8px;
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 30px; /* Espacio horizontal y vertical entre secciones */
+    margin-bottom: 20px;
 }
-.footer p:last-child {
-    margin-bottom: 0;
-    font-style: italic;
-    font-weight: 600;
-    color: #7f8c8d;
+
+.footer-section {
+    flex: 1 1 auto; /* Asegurar que se expandan y contraigan */
+    min-width: 250px; /* Ancho mínimo para cada sección */
+    padding: 10px;
+}
+
+.footer-section p {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+    color: #6c757d;
+}
+
+.footer-section p strong {
+    color: #34495e; /* Color más oscuro para el texto fuerte */
+}
+
+.footer-section p i {
+    margin-right: 8px;
+    color: #667eea; /* Color de icono que coincide con el tema */
+}
+
+.footer-bottom {
+    background-color: #34495e; /* Fondo oscuro para la parte de derechos de autor */
+    color: #ecf0f1;
+    padding: 10px 0;
+    font-size: 0.85em;
+    border-radius: 0 0 20px 20px; /* Bordes inferiores redondeados para coincidir con el footer */
+    margin: 0 -20px -20px; /* Extender al ancho completo del contenedor */
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
 }
 
 /* Ocultar la antigua navegación que ya no se usa */
@@ -726,13 +815,16 @@ body {
     width: 90px; /* Tamaño del bot */
     height: 90px;
     border-radius: 50%;
-    background-color: transparent !important; /* Asegurar fondo transparente */
-    border: none !important; /* Quitar borde */
+    /* Ajustes para PNG con fondo blanco, si es SVG/PNG transparente, quita estas líneas */
+    background-color: transparent !important; 
+    border: none !important; 
+    object-fit: contain; /* Ajusta la imagen dentro de su contenedor */
+    /* Fin ajustes para PNG */
+
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     cursor: pointer;
     animation: float 3s ease-in-out infinite; /* Animación de flotar */
     transition: transform 0.2s ease;
-    object-fit: contain; /* Para asegurar que la imagen se ajuste sin distorsionarse */
 }
 
 .collabo-bot-image:hover {
@@ -791,6 +883,7 @@ body {
     }
     .branches-container {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
     }
     .main-title {
         font-size: 2.8em;
@@ -826,6 +919,26 @@ body {
     .main-navbar .navbar-brand {
         font-size: 1.4em;
     }
+    /* Portada */
+    .presentation-page {
+        padding: 60px 30px;
+    }
+    .university-logo {
+        font-size: 4.5em;
+    }
+    .course-title {
+        font-size: 2.8em;
+    }
+    .assignment-title {
+        font-size: 2.2em;
+    }
+    /* Footer */
+    .footer-content {
+        gap: 10px 20px;
+    }
+    .footer-section {
+        min-width: 200px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -841,16 +954,19 @@ body {
     .presentation-page {
         padding: 40px 20px;
     }
+    .university-logo {
+        font-size: 3.5em;
+    }
     .course-title {
-        font-size: 2.2em;
+        font-size: 2.3em;
     }
     .assignment-title {
         font-size: 1.8em;
     }
     .student-info, .professor-info, .date-info {
         font-size: 1.1em;
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: column; /* Forzarlos a columna en pantallas pequeñas */
+        gap: 8px;
     }
     .student-name {
         font-size: 1.4em;
@@ -858,8 +974,17 @@ body {
     .student-id {
         font-size: 1.1em;
     }
-    .university-logo {
-        font-size: 3em;
+    .institution-details {
+        padding: 18px;
+    }
+    .institution-logo {
+        width: 70px;
+    }
+     .institution-text h3 {
+        font-size: 1.3em;
+    }
+    .institution-text p {
+        font-size: 1em;
     }
 
     .main-title {
@@ -885,9 +1010,9 @@ body {
         gap: 10px;
     }
     .branch-icon {
-        min-width: 40px;
-        height: 40px;
-        font-size: 1.2em;
+        min-width: 45px;
+        height: 45px;
+        font-size: 1.4em;
     }
 
     .definition-box {
@@ -899,11 +1024,11 @@ body {
     }
 
     .comments-section {
-        padding: 25px;
+        padding: 30px;
         margin: 35px 0;
     }
     .comments-title {
-        font-size: 1.7em;
+        font-size: 1.8em;
         gap: 10px;
     }
     .comment-box {
@@ -911,18 +1036,21 @@ body {
     }
 
     .trivia-section {
-        padding: 30px;
-        margin: 35px 0;
+        padding: 35px;
+        margin: 40px 0;
     }
     .trivia-title {
-        font-size: 2em;
+        font-size: 2.1em;
         gap: 10px;
+    }
+    .trivia-section > p {
+        font-size: 1.1em;
     }
     .question-container {
         padding: 20px;
     }
     .question {
-        font-size: 1.25em;
+        font-size: 1.3em;
     }
     .options {
         grid-template-columns: 1fr;
@@ -953,11 +1081,30 @@ body {
         flex-grow: 1; /* Ocupar el espacio disponible */
         margin: 5px 0; /* Espacio vertical */
     }
+    /* Footer */
+    .footer {
+        padding: 25px 15px 10px;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-section {
+        min-width: unset;
+        flex: 1 1 100%; /* Ocupar todo el ancho */
+    }
+    .footer-section p {
+        font-size: 0.9em;
+    }
 }
 
 @media (max-width: 480px) {
+    .university-logo {
+        font-size: 2.8em;
+    }
     .course-title {
         font-size: 1.8em;
+        letter-spacing: 1px;
     }
     .assignment-title {
         font-size: 1.4em;
@@ -994,11 +1141,11 @@ body {
         padding: 0 !important;
     }
     
-    .main-navbar, .collabo-bot-container { /* Ocultar la nueva navbar y el bot */
+    .main-navbar, .collabo-bot-container { 
         display: none !important;
     }
     
-    .glass-effect { /* Quitar estilos de glassmorphism para impresión */
+    .glass-effect { 
         background: none !important;
         backdrop-filter: none !important;
         border: none !important;
@@ -1017,33 +1164,43 @@ body {
     /* Mostrar solo el contenido principal para impresión */
     .presentation-page, .main-content {
         display: block !important;
-        /* Remover fondos y sombras complejos para ahorro de tinta */
         background: none !important;
         box-shadow: none !important;
         border-radius: 0 !important;
-        padding: 0 !important; /* Resetear padding para imprimir */
+        padding: 0 !important;
     }
 
-    .presentation-page::before, .concept-ring {
-        display: none !important; /* Ocultar animación de fondo y anillo */
+    .presentation-page::before, .presentation-page::after, .concept-ring { /* Ocultar nuevas texturas/animaciones */
+        display: none !important;
+    }
+
+    .university-logo, .course-title { /* Quitar degradados de texto para impresión */
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: unset !important;
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+    .assignment-title {
+        color: #333 !important;
     }
 
     .header, .definition-box, .mind-map, .branches-container, .branch, .branch-item, .central-concept {
         background: none !important;
         box-shadow: none !important;
-        border-color: #eee !important; /* Bordes suaves para ramas */
-        border-left: 1px solid #ddd !important; /* Borde más sutil para ítems */
-        color: #000 !important; /* Texto negro para claridad */
+        border-color: #eee !important;
+        border-left: 1px solid #ddd !important;
+        color: #000 !important;
     }
 
     .central-concept, .branch-title, .branch-item {
-        color: #000 !important; /* Asegurar texto legible */
+        color: #000 !important;
     }
 
     .branch-icon {
         background: #eee !important;
         color: #555 !important;
         box-shadow: none !important;
+        border: 1px solid #ccc !important;
     }
 
     .branch-item {
@@ -1051,14 +1208,14 @@ body {
         border: 1px solid #ddd !important;
     }
     .branch-item strong {
-        color: #333 !important; /* asegurar que la negrita se vea negra */
+        color: #333 !important;
     }
     .branch-item i {
-        color: #666 !important; /* iconos en gris para impresión */
+        color: #666 !important;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        color: #000 !important; /* Títulos negros para impresión */
+        color: #000 !important;
         text-shadow: none !important;
     }
 
@@ -1075,10 +1232,36 @@ body {
     }
 
     /* Pie de página y comentarios también se imprimen */
-    .footer, .comments-section {
-        display: block !important;
-        background: none !important;
+    .footer { /* Resetear su fondo y sombra */
+        background: #fff !important;
         box-shadow: none !important;
+        border: none !important;
+        color: black !important;
+        padding: 20px 0 !important;
+    }
+    .footer-bottom {
+        background: #f1f1f1 !important;
+        color: #555 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+    }
+    .footer-section p, .footer-section p strong, .footer-section p i {
+        color: #000 !important;
+    }
+    .comments-section {
+        background: #f9f9f9 !important;
+        box-shadow: none !important;
+        border-left-color: #ccc !important;
+        padding: 20px !important;
+    }
+    .comment-box {
+        background: #fff !important;
+        box-shadow: none !important;
+        border-left-color: #ddd !important;
+        padding: 15px !important;
+    }
+    .comment-text, .comment-author {
         color: #000 !important;
     }
 }
