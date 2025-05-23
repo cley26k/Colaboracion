@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentDateElement.textContent = formattedDate;
     }
     if (footerDateElement) {
-        footerDateElement.textContent = `📅 ${formattedDate}`; // Corregido para mostrar la fecha
+        footerDateElement.textContent = formattedDate;
     }
 
     // ----------------------------------------------------
