@@ -1,0 +1,1084 @@
+/* Import de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo de selección de texto */
+::selection {
+    background-color: #6a11cb; /* Un púrpura más oscuro para el gradiente */
+    color: #ffffff;
+}
+
+/* Estilo de la barra de desplazamiento (para navegadores WebKit como Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Fuente principal para el cuerpo */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fondo principal */
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+    padding-top: 80px; /* Espacio para la nueva barra de navegación fija */
+}
+
+/* --- Nueva Barra de Navegación Fija --- */
+.main-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(44, 62, 80, 0.9); /* Fondo oscuro semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000; /* Asegurar que esté por encima de todo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-navbar .navbar-brand {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-navbar .navbar-brand i {
+    color: #ffd700; /* Color dorado para el icono */
+}
+
+.main-navbar .navbar-buttons {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+}
+
+/* Redefinición para los botones de la navbar principal */
+.main-navbar .nav-button {
+    background: transparent; /* Fondo transparente */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borde sutil */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: none; /* Eliminar sombra predeterminada */
+}
+
+.main-navbar .nav-button:hover {
+    background: rgba(255, 255, 255, 0.15); /* Ligero fondo al pasar el ratón */
+    border-color: white;
+    transform: translateY(-2px); /* Ligero efecto de elevación */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Sombra al pasar el ratón */
+}
+
+.main-navbar .nav-button[aria-current="page"] {
+    background: #3498db; /* Color más distintivo para el activo */
+    border-color: #3498db;
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    cursor: default;
+}
+.main-navbar .nav-button[aria-current="page"]:hover {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Ajuste para el print button que ahora está en la navbar */
+.main-navbar .print-button {
+    position: relative; /* Quitar fixed */
+    top: auto;
+    right: auto;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    transition: all 0.3s ease;
+    z-index: auto;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.main-navbar .print-button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+}
+
+
+/* Efecto Glass */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    backdrop-filter: blur(15px); /* Efecto de desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde suave */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 25px; /* Bordes más redondeados */
+    padding: 40px; /* Aumentar padding */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+    overflow: hidden; /* Para contener la animación del fondo */
+}
+
+/* Página de Presentación */
+.presentation-page {
+    text-align: center;
+    padding: 60px 30px; /* Aumentar padding */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out; /* Transición para un cambio de estado */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Animación de fondo sutil para la página de presentación */
+.presentation-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(255,255,255,0.05) 2px, /* Ligero cambio de color */
+        rgba(255,255,255,0.05) 4px
+    );
+    animation: float-bg 30s infinite linear; /* Velocidad más lenta */
+    z-index: 1;
+}
+
+@keyframes float-bg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.presentation-page * { /* Asegurar que el contenido esté sobre la animación */
+    position: relative;
+    z-index: 2;
+}
+
+.university-logo {
+    font-size: 4.5em; /* Icono más grande */
+    margin-bottom: 25px; /* Espaciado más */
+    text-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    color: #ffd700; /* Color dorado para el gorro */
+}
+
+.course-title {
+    font-family: 'Montserrat', sans-serif; /* Nueva fuente para títulos */
+    font-size: 2.8em; /* Tamaño más grande */
+    font-weight: 800; /* Negrita más marcada */
+    margin-bottom: 20px;
+    text-shadow: 3px 4px 7px rgba(0,0,0,0.4);
+    letter-spacing: 1.5px;
+}
+
+.assignment-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em; /* Tamaño más grande */
+    margin-bottom: 40px;
+    font-style: italic;
+    opacity: 0.95;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    border-bottom: 2px solid rgba(255,255,255,0.5); /* Línea decorativa */
+    padding-bottom: 10px;
+    display: inline-block; /* Para que la línea se ajuste al texto */
+}
+
+.institution-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 30px auto;
+    max-width: 600px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    backdrop-filter: blur(8px);
+}
+
+.institution-logo {
+    width: 80px; /* Tamaño del logo */
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px; /* Ligero redondeado */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.institution-text {
+    text-align: left;
+}
+
+.institution-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.institution-text p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.student-info, .professor-info, .date-info {
+    font-size: 1.25em; /* Tamaño consistente */
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.student-info { /* Ya tiene glass-effect */
+    padding: 30px; /* Más padding */
+    margin: 30px auto;
+    max-width: 550px; /* Ancho un poco mayor */
+    flex-direction: column; /* Apilar elementos en móvil */
+}
+
+.student-name {
+    font-size: 1.6em; /* Un poco más grande */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.student-id {
+    font-size: 1.3em;
+    opacity: 0.9;
+}
+
+.professor-info {
+    margin-top: 30px;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+.date-info {
+    margin-top: 20px;
+    font-size: 1.05em;
+    opacity: 0.85;
+}
+
+/* Iconos dentro del texto */
+.student-info i, .professor-info i, .date-info i, .comments-title i, .trivia-title i, .print-button i, .nav-button i, .branch-item i {
+    margin-right: 5px;
+    color: rgba(255,255,255,0.8); /* Color para iconos en la portada */
+}
+/* Asegura que los iconos en los comentarios y ramas no tengan el color de la portada */
+.comments-title i, .branch-item i {
+    color: inherit; /* Hereda el color del texto circundante */
+}
+
+/* Header General para Contenido */
+.header {
+    text-align: center;
+    margin-bottom: 50px; /* Más espacio */
+}
+
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2em; /* Más grande */
+    color: #2c3e50;
+    margin-bottom: 15px; /* Más espacio */
+    text-shadow: 2px 3px 6px rgba(0,0,0,0.15); /* Sombra ligeramente más suave */
+    font-weight: 800; /* Más negrita */
+}
+
+.subtitle {
+    font-size: 1.3em; /* Más grande */
+    color: #7f8c8d;
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* Mapa Mental */
+.mind-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Más espacio entre elementos */
+    position: relative;
+    padding-bottom: 20px; /* Espacio extra para la animación */
+}
+
+.central-concept { /* Ya tiene glass-effect */
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    padding: 30px 45px; /* Más padding */
+    border-radius: 60px; /* Más redondeado, forma de pastilla */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em; /* Más grande */
+    font-weight: 800;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4); /* Sombra más grande y marcada */
+    position: relative;
+    z-index: 10;
+    transition: all 0.4s ease; /* Transición más suave */
+    letter-spacing: 1px; /* Ligeramente más espaciado */
+    overflow: hidden; /* Para el anillo */
+}
+
+.central-concept:hover {
+    transform: scale(1.08) translateY(-5px); /* Efecto de levitación y escala */
+    box-shadow: 0 18px 45px rgba(52, 152, 219, 0.5); /* Sombra al flotar */
+}
+
+.concept-ring { /* Anillo decorativo para central concept */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+    animation: pulse-ring 2s infinite ease-out;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+.branches-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min-width ajustado para más contenido */
+    gap: 35px; /* Más espacio */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.branch { /* Ya tiene glass-effect */
+    background: white;
+    border-radius: 20px; /* Más redondeado */
+    padding: 30px; /* Más padding */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra más suave */
+    border-left: 6px solid; /* Borde más grueso */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Curva de transición elegante */
+    position: relative;
+    overflow: hidden; /* Para posibles efectos internos si los hubiera */
+}
+
+.branch:hover {
+    transform: translateY(-10px); /* Efecto de levitación */
+    box-shadow: 0 18px 45px rgba(0,0,0,0.15); /* Sombra más fuerte al flotar */
+}
+
+/* Colores de ramas personalizados */
+.branch.caracteristicas {
+    border-left-color: #e74c3c;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(255,240,237, 0.25) 100%);
+}
+.branch.beneficios {
+    border-left-color: #27ae60;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(232,251,237, 0.25) 100%);
+}
+.branch.tipos {
+    border-left-color: #f39c12;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(255,251,230, 0.25) 100%);
+}
+.branch.elementos {
+    border-left-color: #9b59b6;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(246,239,251, 0.25) 100%);
+}
+
+.branch-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em; /* Más grande */
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Más espacio entre icono y texto */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Sombra para títulos */
+}
+
+.branch-icon {
+    min-width: 48px; /* Tamaño mínimo para asegurar el círculo */
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5em; /* Icono más grande */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra para el icono del título */
+}
+
+/* Colores de iconos de rama */
+.caracteristicas .branch-icon { background: #e74c3c; }
+.beneficios .branch-icon { background: #27ae60; }
+.tipos .branch-icon { background: #f39c12; }
+.elementos .branch-icon { background: #9b59b6; }
+
+.branch-content {
+    list-style: none;
+}
+
+.branch-item {
+    background: rgba(255,255,255,0.9); /* Ligeramente más opaco inicialmente */
+    margin: 12px 0; /* Más espacio */
+    padding: 18px 20px; /* Más padding */
+    border-radius: 12px; /* Más redondeado */
+    border-left: 5px solid; /* Borde más grueso */
+    font-size: 1em; /* Ajuste para mejor lectura */
+    line-height: 1.7; /* Aumentar interlineado */
+    transition: all 0.3s ease-out; /* Transición más suave y rápida */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra base para los items */
+}
+
+.branch-item:hover {
+    background: white; /* Blanco puro al pasar el ratón */
+    transform: translateX(10px); /* Desplazamiento más pronunciado */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Sombra más fuerte al flotar */
+}
+
+/* Colores de borde de ítems de rama */
+.caracteristicas .branch-item { border-left-color: #e74c3c; }
+.beneficios .branch-item { border-left-color: #27ae60; }
+.tipos .branch-item { border-left-color: #f39c12; }
+.elementos .branch-item { border-left-color: #9b59b6; }
+
+/* Caja de Definición */
+.definition-box { /* Ya tiene glass-effect */
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    padding: 35px; /* Más padding */
+    margin: 35px 0; /* Más margen */
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(116, 185, 255, 0.4); /* Sombra más marcada */
+}
+
+.definition-text {
+    font-size: 1.25em; /* Un poco más grande */
+    line-height: 1.8; /* Mayor interlineado para legibilidad */
+    font-style: italic;
+    font-weight: 300; /* Más ligero */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.15); /* Sombra sutil para legibilidad */
+}
+
+/* Sección de Comentarios */
+.comments-section { /* Ya tiene glass-effect */
+    background: #f8f9fa;
+    border-left: 6px solid #6c5ce7; /* Borde más grueso */
+    padding: 35px;
+    margin: 45px 0;
+}
+
+.comments-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em; /* Más grande */
+    color: #2d3436;
+    margin-bottom: 25px; /* Más espacio */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+}
+
+.comment-box {
+    background: white;
+    border-radius: 15px; /* Más redondeado */
+    padding: 25px; /* Más padding */
+    margin: 20px 0; /* Más margen */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Sombra suave */
+    border-left: 5px solid #6c5ce7; /* Borde más grueso */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.comment-text {
+    line-height: 1.7;
+    color: #4a4a4a; /* Color de texto más oscuro */
+    margin-bottom: 12px; /* Más espacio */
+    font-size: 1.05em;
+}
+
+.comment-author {
+    font-size: 0.95em; /* Ligeramente más grande */
+    color: #636e72;
+    font-style: italic;
+    text-align: right; /* Alineado a la derecha */
+}
+
+/* Trivia Interactiva */
+.trivia-section {
+    background: linear-gradient(135deg, #fd79a8, #e84393); /* Gradiente más vibrante */
+    color: white;
+    border-radius: 20px;
+    padding: 40px; /* Más padding */
+    margin: 45px 0;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(224, 76, 155, 0.3); /* Sombra marcada */
+}
+
+.trivia-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em; /* Más grande */
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.trivia-section > p {
+    font-size: 1.15em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.question-container { /* Ya tiene glass-effect */
+    background: rgba(255,255,255,0.2); /* Ligeramente más opaco */
+    padding: 30px; /* Más padding */
+    margin: 25px auto; /* Centrar y más margen */
+    max-width: 700px; /* Limitar ancho para mejor lectura */
+}
+
+.question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em; /* Más grande */
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Min-width ajustado */
+    gap: 20px; /* Más espacio */
+    margin: 20px 0;
+}
+
+.option {
+    background: rgba(255,255,255,0.25); /* Un poco más opaco */
+    border: 2px solid rgba(255,255,255,0.4); /* Borde más pronunciado */
+    color: white;
+    padding: 18px 25px; /* Más padding */
+    border-radius: 12px; /* Más redondeado */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1em; /* Más grande */
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.option:hover {
+    background: rgba(255,255,255,0.4); /* Más opaco al hover */
+    transform: translateY(-5px) scale(1.02); /* Efecto de levitación y pequeño aumento */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.option.correct {
+    background: #00b894; /* Verde más vivo */
+    border-color: #00a085;
+    transform: scale(1.05); /* Escala al ser correcto */
+    box-shadow: 0 0 15px rgba(0,184,148,0.5); /* Sombra brillante */
+}
+
+.option.incorrect {
+    background: #e17055; /* Rojo más suave */
+    border-color: #d63031;
+    animation: shake 0.5s; /* Animación de temblor */
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+.trivia-result { /* Ya tiene glass-effect */
+    margin-top: 30px; /* Más espacio */
+    padding: 20px;
+    font-size: 1.3em; /* Más grande */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.trivia-score { /* Ya tiene glass-effect */
+    background: rgba(255,255,255,0.3);
+    padding: 18px;
+    margin-top: 20px;
+    font-size: 1.4em; /* Más grande */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+.footer { /* Ya tiene glass-effect */
+    text-align: center;
+    margin-top: 50px; /* Más espacio */
+    padding: 25px;
+    background: #f0f2f5; /* Fondo más claro */
+    color: #6c757d;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-size: 0.95em;
+}
+
+.footer p {
+    margin-bottom: 8px;
+}
+.footer p:last-child {
+    margin-bottom: 0;
+    font-style: italic;
+    font-weight: 600;
+    color: #7f8c8d;
+}
+
+/* Ocultar la antigua navegación que ya no se usa */
+.navigation {
+    display: none; 
+}
+
+.hidden {
+    display: none !important; /* Importante para asegurar que se oculte */
+}
+
+
+/* Colabo-Bot Styles */
+.collabo-bot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0; /* Hidden by default, JS will show */
+    transform: translateX(100px); /* Slide in from right */
+}
+
+.collabo-bot-container.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.collabo-bot-image {
+    width: 90px; /* Tamaño del bot */
+    height: 90px;
+    border-radius: 50%;
+    background-color: transparent !important; /* Asegurar fondo transparente */
+    border: none !important; /* Quitar borde */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite; /* Animación de flotar */
+    transition: transform 0.2s ease;
+    object-fit: contain; /* Para asegurar que la imagen se ajuste sin distorsionarse */
+}
+
+.collabo-bot-image:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.collabo-bot-dialogue {
+    background: #fff;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border-bottom-right-radius: 0; /* Para el pico del speech bubble */
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 100px; /* Encima del bot */
+    margin-right: 15px;
+    opacity: 0;
+    pointer-events: none; /* Evita que bloquee clics */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 200px;
+    text-align: center;
+}
+
+.collabo-bot-dialogue::after { /* Pico del diálogo */
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #fff;
+    border-top: 10px solid #fff;
+    border-bottom: 10px solid transparent;
+}
+
+/* Character for error/joke dialogue */
+.collabo-bot-dialogue.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 992px) {
+    .container {
+        padding: 30px;
+    }
+    .branches-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .main-title {
+        font-size: 2.8em;
+    }
+    .branch-title {
+        font-size: 1.5em;
+    }
+    .central-concept {
+        font-size: 1.8em;
+        padding: 25px 35px;
+    }
+    .trivia-title {
+        font-size: 2.2em;
+    }
+    .institution-details {
+        flex-direction: column;
+        text-align: center;
+    }
+    .institution-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .institution-text {
+        text-align: center;
+    }
+    .main-navbar .navbar-buttons {
+        gap: 10px;
+    }
+    .main-navbar .nav-button, .main-navbar .print-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .main-navbar .navbar-brand {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        padding-top: 70px; /* Ajuste para la navbar en móvil */
+    }
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .presentation-page {
+        padding: 40px 20px;
+    }
+    .course-title {
+        font-size: 2.2em;
+    }
+    .assignment-title {
+        font-size: 1.8em;
+    }
+    .student-info, .professor-info, .date-info {
+        font-size: 1.1em;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .student-name {
+        font-size: 1.4em;
+    }
+    .student-id {
+        font-size: 1.1em;
+    }
+    .university-logo {
+        font-size: 3em;
+    }
+
+    .main-title {
+        font-size: 2.4em;
+    }
+    .subtitle {
+        font-size: 1.1em;
+    }
+    
+    .branches-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+    
+    .central-concept {
+        font-size: 1.6em;
+        padding: 20px 30px;
+    }
+    .branch {
+        padding: 25px;
+    }
+    .branch-title {
+        font-size: 1.3em;
+        gap: 10px;
+    }
+    .branch-icon {
+        min-width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+
+    .definition-box {
+        padding: 25px;
+        margin: 25px 0;
+    }
+    .definition-text {
+        font-size: 1.05em;
+    }
+
+    .comments-section {
+        padding: 25px;
+        margin: 35px 0;
+    }
+    .comments-title {
+        font-size: 1.7em;
+        gap: 10px;
+    }
+    .comment-box {
+        padding: 20px;
+    }
+
+    .trivia-section {
+        padding: 30px;
+        margin: 35px 0;
+    }
+    .trivia-title {
+        font-size: 2em;
+        gap: 10px;
+    }
+    .question-container {
+        padding: 20px;
+    }
+    .question {
+        font-size: 1.25em;
+    }
+    .options {
+        grid-template-columns: 1fr;
+    }
+    .option {
+        font-size: 1em;
+        padding: 15px 20px;
+    }
+    .trivia-result, .trivia-score {
+        font-size: 1.1em;
+    }
+
+    .main-navbar {
+        flex-direction: column; /* Apilar elementos en la navbar */
+        align-items: flex-start;
+        padding: 10px 15px;
+    }
+    .main-navbar .navbar-brand {
+        margin-bottom: 10px;
+        font-size: 1.3em;
+    }
+    .main-navbar .navbar-buttons {
+        width: 100%;
+        justify-content: space-around; /* Distribuir botones */
+        flex-wrap: wrap; /* Permitir que los botones envuelvan */
+    }
+    .main-navbar .nav-button, .main-navbar .print-button {
+        flex-grow: 1; /* Ocupar el espacio disponible */
+        margin: 5px 0; /* Espacio vertical */
+    }
+}
+
+@media (max-width: 480px) {
+    .course-title {
+        font-size: 1.8em;
+    }
+    .assignment-title {
+        font-size: 1.4em;
+    }
+    .main-title {
+        font-size: 2em;
+    }
+    .trivia-title {
+        font-size: 1.8em;
+    }
+    .collabo-bot-image {
+        width: 70px;
+        height: 70px;
+    }
+    .collabo-bot-dialogue {
+        font-size: 0.8em;
+        bottom: 80px;
+        max-width: 150px;
+    }
+    .main-navbar .navbar-buttons {
+        gap: 5px; /* Menos espacio entre botones */
+    }
+    .main-navbar .nav-button, .main-navbar .print-button {
+        padding: 8px 10px;
+        font-size: 0.85em;
+    }
+}
+
+
+/* Estilos para impresión */
+@media print {
+    body {
+        background: white !important;
+        padding: 0 !important;
+    }
+    
+    .main-navbar, .collabo-bot-container { /* Ocultar la nueva navbar y el bot */
+        display: none !important;
+    }
+    
+    .glass-effect { /* Quitar estilos de glassmorphism para impresión */
+        background: none !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    .container {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 20px !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Mostrar solo el contenido principal para impresión */
+    .presentation-page, .main-content {
+        display: block !important;
+        /* Remover fondos y sombras complejos para ahorro de tinta */
+        background: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important; /* Resetear padding para imprimir */
+    }
+
+    .presentation-page::before, .concept-ring {
+        display: none !important; /* Ocultar animación de fondo y anillo */
+    }
+
+    .header, .definition-box, .mind-map, .branches-container, .branch, .branch-item, .central-concept {
+        background: none !important;
+        box-shadow: none !important;
+        border-color: #eee !important; /* Bordes suaves para ramas */
+        border-left: 1px solid #ddd !important; /* Borde más sutil para ítems */
+        color: #000 !important; /* Texto negro para claridad */
+    }
+
+    .central-concept, .branch-title, .branch-item {
+        color: #000 !important; /* Asegurar texto legible */
+    }
+
+    .branch-icon {
+        background: #eee !important;
+        color: #555 !important;
+        box-shadow: none !important;
+    }
+
+    .branch-item {
+        background: #f9f9f9 !important;
+        border: 1px solid #ddd !important;
+    }
+    .branch-item strong {
+        color: #333 !important; /* asegurar que la negrita se vea negra */
+    }
+    .branch-item i {
+        color: #666 !important; /* iconos en gris para impresión */
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #000 !important; /* Títulos negros para impresión */
+        text-shadow: none !important;
+    }
+
+    /* Quitar transiciones y transforms para impresión */
+    * {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    /* Asegurar que las secciones ocultas no aparezcan */
+    #trivia-page {
+        display: none !important;
+    }
+
+    /* Pie de página y comentarios también se imprimen */
+    .footer, .comments-section {
+        display: block !important;
+        background: none !important;
+        box-shadow: none !important;
+        color: #000 !important;
+    }
+}

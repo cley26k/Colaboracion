@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organizador gráfico interactivo sobre la colaboración en la clase digital, con características, beneficios, tipos y una trivia.">
+    <meta name="author" content="Cleyton González Acosta">
+    <title>La Colaboración | Organizador Gráfico</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon (Opcional, puedes reemplazarlo con tu propio icono) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-5' y='90' font-size='100'%3E🤝%3C/text%3E%3Csvg%3E">
+</head>
+<body>
+    <!-- Nueva Barra de Tareas/Navegación Fija -->
+    <nav class="main-navbar">
+        <div class="navbar-brand">
+            <i class="fas fa-handshake"></i> Colaboración
+        </div>
+        <div class="navbar-buttons">
+            <button class="nav-button" data-section="presentation" aria-current="page"><i class="fas fa-home"></i> Inicio</button>
+            <button class="nav-button" data-section="content"><i class="fas fa-project-diagram"></i> Organizador</button>
+            <button class="nav-button" data-section="trivia"><i class="fas fa-question-circle"></i> Trivia</button>
+            <button class="print-button" onclick="window.print()">
+                <i class="fas fa-print"></i> Imprimir PDF
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Página de Presentación Mejorada -->
+        <section class="presentation-page" id="presentation-page">
+            <div class="university-logo">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1 class="course-title">Colaboración en la Clase Digital</h1>
+            <h2 class="assignment-title">Organizador Gráfico sobre la Colaboración</h2>
+            
+            <div class="institution-details">
+                <img src="https://isfodosu-docente.web.app/assets/logo.jpg" alt="ISFODOSU Logo" class="institution-logo">
+                <div class="institution-text">
+                    <h3>Instituto Superior de Formación Docente Salomé Ureña (ISFODOSU)</h3>
+                    <p>Recinto: Luis Napoleón Núñez Molina (LNNM)</p>
+                </div>
+            </div>
+
+            <div class="student-info glass-effect">
+                <div class="student-name"><i class="fas fa-user-graduate"></i> Cleyton De Angelo González Acosta</div>
+                <div class="student-id">Matrícula: 20231-0155</div>
+            </div>
+            
+            <div class="professor-info">
+                <strong><i class="fas fa-chalkboard-teacher"></i> Profesor:</strong> Prof. Yelfri Antonio Rodríguez
+            </div>
+            
+            <div class="date-info">
+                <i class="fas fa-calendar-alt"></i> <span id="current-date"></span> | <i class="fas fa-bullseye"></i> Actividad Académica Individual
+            </div>
+        </section>
+
+        <!-- Contenido Principal - Organizador Gráfico -->
+        <main id="content-page" class="main-content hidden">
+            <header class="header">
+                <h1 class="main-title">LA COLABORACIÓN</h1>
+                <p class="subtitle">Organizador Gráfico - Mapa Conceptual Interactivo</p>
+            </header>
+
+            <div class="definition-box glass-effect">
+                <p class="definition-text">
+                    "La colaboración es un proceso dinámico e interactivo mediante el cual dos o más individuos o grupos trabajan conjuntamente 
+                    hacia la consecución de objetivos compartidos y claramente definidos. Este proceso implica el intercambio sistemático de 
+                    conocimientos, habilidades, recursos y experiencias, donde cada participante aporta sus fortalezas únicas para crear 
+                    sinergias que permitan lograr resultados superiores a los que se obtendrían trabajando de manera individual. La colaboración 
+                    efectiva requiere de comunicación abierta, confianza mutua, responsabilidad compartida y un compromiso genuino con el éxito colectivo."
+                </p>
+            </div>
+
+            <section class="mind-map">
+                <div class="central-concept glass-effect">
+                    COLABORACIÓN
+                    <div class="concept-ring"></div>
+                </div>
+
+                <div class="branches-container">
+                    <article class="branch caracteristicas glass-effect">
+                        <h3 class="branch-title">
+                            <div class="branch-icon"><i class="fas fa-lightbulb"></i></div>
+                            CARACTERÍSTICAS FUNDAMENTALES
+                        </h3>
+                        <ul class="branch-content">
+                            <li class="branch-item"><i class="fas fa-hands-helping"></i> <strong>Interdependencia positiva:</strong> Los miembros del grupo reconocen que su éxito individual está intrínsecamente ligado al éxito del grupo completo, creando una cultura de apoyo mutuo y responsabilidad compartida.</li>
+                            <li class="branch-item"><i class="fas fa-comments"></i> <strong>Comunicación efectiva y continua:</strong> Establecimiento de canales de comunicación claros, directos y bidireccionales que faciliten el intercambio constante de ideas, feedback constructivo y resolución de conflictos de manera asertiva.</li>
+                            <li class="branch-item"><i class="fas fa-bullseye"></i> <strong>Objetivos compartidos y alineados:</strong> Definición clara y consensuada de metas comunes que todos los participantes comprenden, aceptan y hacia las cuales dirigen sus esfuerzos de manera coordinada.</li>
+                            <li class="branch-item"><i class="fas fa-balance-scale"></i> <strong>Responsabilidad individual y grupal:</strong> Cada miembro asume la responsabilidad tanto de su contribución personal como del resultado colectivo, manteniendo un equilibrio entre la autonomía individual y el compromiso grupal.</li>
+                            <li class="branch-item"><i class="fas fa-users-rays"></i> <strong>Interacción cara a cara o virtual:</strong> Promoción de encuentros regulares y significativos entre los participantes, ya sea presencialmente o a través de plataformas digitales, para fortalecer las relaciones interpersonales.</li>
+                            <li class="branch-item"><i class="fas fa-handshake"></i> <strong>Respeto por la diversidad:</strong> Valoración y aprovechamiento de las diferencias individuales en términos de perspectivas, habilidades, experiencias culturales y estilos de trabajo como fuente de enriquecimiento grupal.</li>
+                        </ul>
+                    </article>
+
+                    <article class="branch beneficios glass-effect">
+                        <h3 class="branch-title">
+                            <div class="branch-icon"><i class="fas fa-award"></i></div>
+                            BENEFICIOS Y VENTAJAS
+                        </h3>
+                        <ul class="branch-content">
+                            <li class="branch-item"><i class="fas fa-brain"></i> <strong>Aprendizaje enriquecido y profundo:</strong> La exposición a múltiples perspectivas y enfoques facilita un aprendizaje más significativo, desarrollando el pensamiento crítico y la capacidad de análisis desde diferentes ángulos.</li>
+                            <li class="branch-item"><i class="fas fa-user-tie"></i> <strong>Desarrollo integral de habilidades:</strong> Fortalecimiento de competencias sociales, comunicativas, de liderazgo, negociación y trabajo en equipo que son esenciales en el ámbito personal y profesional.</li>
+                            <li class="branch-item"><i class="fas fa-rocket"></i> <strong>Incremento significativo de la productividad:</strong> La distribución eficiente de tareas según las fortalezas individuales y la sinergia grupal resultan en procesos más eficientes y resultados de mayor calidad en menor tiempo.</li>
+                            <li class="branch-item"><i class="fas fa-lightbulb"></i> <strong>Estimulación de la creatividad e innovación:</strong> El brainstorming colectivo y la combinación de ideas diversas generan soluciones más creativas, originales e innovadoras que difícilmente surgen del trabajo individual.</li>
+                            <li class="branch-item"><i class="fas fa-star"></i> <strong>Mejora sustancial en la calidad:</strong> La revisión por pares, el feedback constante y la suma de expertise individual contribuyen a elevar significativamente la calidad de los productos finales.</li>
+                            <li class="branch-item"><i class="fas fa-heart"></i> <strong>Aumento de la motivación y satisfacción:</strong> El sentido de pertenencia, el reconocimiento mutuo y el logro de objetivos compartidos incrementan la motivación intrínseca y la satisfacción personal de los participantes.</li>
+                        </ul>
+                    </article>
+
+                    <article class="branch tipos glass-effect">
+                        <h3 class="branch-title">
+                            <div class="branch-icon"><i class="fas fa-th-list"></i></div>
+                            MODALIDADES DE COLABORACIÓN
+                        </h3>
+                        <ul class="branch-content">
+                            <li class="branch-item"><i class="fas fa-users"></i> <strong>Colaboración presencial tradicional:</strong> Interacción directa cara a cara en espacios físicos compartidos, permitiendo comunicación no verbal completa, construcción de relaciones más sólidas y resolución inmediata de dudas.</li>
+                            <li class="branch-item"><i class="fas fa-laptop-code"></i> <strong>Colaboración virtual o digital:</strong> Trabajo conjunto a través de herramientas tecnológicas y plataformas digitales que trascienden las barreras geográficas y temporales, facilitando la participación global y flexible.</li>
+                            <li class="branch-item"><i class="fas fa-sliders-h"></i> <strong>Modalidad híbrida o mixta:</strong> Combinación estratégica de elementos presenciales y virtuales que aprovecha las ventajas de ambas modalidades, adaptándose a las necesidades específicas del proyecto y los participantes.</li>
+                            <li class="branch-item"><i class="fas fa-sync-alt"></i> <strong>Colaboración síncrona en tiempo real:</strong> Trabajo simultáneo donde todos los participantes interactúan al mismo tiempo, facilitando la toma de decisiones inmediata y la construcción colectiva de ideas.</li>
+                            <li class="branch-item"><i class="fas fa-history"></i> <strong>Colaboración asíncrona diferida:</strong> Participación en diferentes momentos temporales que permite reflexión profunda, mayor flexibilidad horaria y la inclusión de personas en distintas zonas horarias.</li>
+                            <li class="branch-item"><i class="fas fa-building"></i> <strong>Colaboración formal institucional:</strong> Estructura organizacional definida con roles, jerarquías y procesos establecidos formalmente dentro de instituciones educativas o empresariales.</li>
+                        </ul>
+                    </article>
+
+                    <article class="branch elementos glass-effect">
+                        <h3 class="branch-title">
+                            <div class="branch-icon"><i class="fas fa-cubes"></i></div>
+                            ELEMENTOS ESENCIALES
+                        </h3>
+                        <ul class="branch-content">
+                            <li class="branch-item"><i class="fas fa-crown"></i> <strong>Liderazgo compartido y distribuido:</strong> Rotación de roles de liderazgo según las fortalezas individuales y las necesidades del proyecto, promoviendo la participación activa y el desarrollo de capacidades de liderazgo en todos los miembros.</li>
+                            <li class="branch-item"><i class="fas fa-sitemap"></i> <strong>Definición clara de roles y responsabilidades:</strong> Asignación específica y transparente de funciones, tareas y expectativas para cada participante, evitando duplicidades y asegurando cobertura completa de las actividades necesarias.</li>
+                            <li class="branch-item"><i class="fas fa-tools"></i> <strong>Herramientas y recursos apropiados:</strong> Provisión de tecnologías, materiales, espacios físicos o virtuales y recursos financieros necesarios para facilitar la colaboración efectiva y el logro de objetivos establecidos.</li>
+                            <li class="branch-item"><i class="fas fa-clock"></i> <strong>Gestión eficiente del tiempo:</strong> Planificación detallada de cronogramas, establecimiento de hitos y deadlines realistas, y coordinación de horarios que respeten los compromisos individuales de los participantes.</li>
+                            <li class="branch-item"><i class="fas fa-chart-line"></i> <strong>Evaluación y monitoreo continuo:</strong> Implementación de sistemas de seguimiento del progreso, evaluación regular de resultados parciales y ajustes oportunos de estrategias para mantener el rumbo hacia los objetivos establecidos.</li>
+                            <li class="branch-item"><i class="fas fa-handshake-angle"></i> <strong>Construcción de confianza mutua:</strong> Desarrollo gradual de relaciones de confianza a través de la transparencia, el cumplimiento de compromisos, la comunicación honesta y el respeto mutuo como base fundamental para una colaboración exitosa.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Sección de Comentarios -->
+            <section class="comments-section glass-effect">
+                <h3 class="comments-title"><i class="fas fa-comment-dots"></i> Reflexiones y Comentarios Académicos</h3>
+                
+                <div class="comment-box">
+                    <p class="comment-text">
+                        La colaboración en el contexto educativo digital representa un paradigma transformador que rompe las barreras tradicionales 
+                        del aprendizaje individual. A través de este organizador gráfico, he podido comprender cómo la tecnología no solo facilita 
+                        la colaboración, sino que la potencia, creando nuevas oportunidades para el intercambio de conocimientos y la construcción 
+                        colectiva del saber.
+                    </p>
+                    <p class="comment-author">- Reflexión del estudiante sobre el impacto de la colaboración digital</p>
+                </div>
+
+                <div class="comment-box">
+                    <p class="comment-text">
+                        Uno de los aspectos más relevantes que he identificado es cómo la colaboración efectiva requiere de un equilibrio delicado 
+                        entre la autonomía individual y la responsabilidad colectiva. Este balance es especialmente desafiante en entornos virtuales, 
+                        donde la comunicación no verbal se ve limitada, pero las herramientas digitales ofrecen nuevas formas de expresión y conexión.
+                    </p>
+                    <p class="comment-author">- Análisis sobre los desafíos de la colaboración virtual</p>
+                </div>
+
+                <div class="comment-box">
+                    <p class="comment-text">
+                        La elaboración de este mapa conceptual me ha permitido visualizar la complejidad inherente de los procesos colaborativos. 
+                        Es fascinante observar cómo cada elemento se interconecta con los demás, formando un ecosistema donde el éxito depende 
+                        de la armonía entre factores técnicos, sociales y pedagógicos.
+                    </p>
+                    <p class="comment-author">- Observación sobre la interconexión de elementos colaborativos</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Trivia Interactiva -->
+        <section id="trivia-page" class="trivia-section hidden">
+            <h2 class="trivia-title"><i class="fas fa-brain"></i> Trivia Interactiva sobre Colaboración</h2>
+            <p>¡Pon a prueba tus conocimientos sobre la colaboración!</p>
+            
+            <div id="trivia-questions">
+                <div class="question-container glass-effect" data-question-id="1">
+                    <div class="question">1. ¿Cuál es una característica fundamental de la colaboración efectiva?</div>
+                    <div class="options">
+                        <button class="option" data-correct="false">Competencia individual</button>
+                        <button class="option" data-correct="true">Interdependencia positiva</button>
+                        <button class="option" data-correct="false">Trabajo aislado</button>
+                        <button class="option" data-correct="false">Jerarquía rígida</button>
+                    </div>
+                </div>
+
+                <div class="question-container glass-effect" data-question-id="2" style="display:none;">
+                    <div class="question">2. ¿Qué tipo de colaboración permite trabajar en diferentes momentos?</div>
+                    <div class="options">
+                        <button class="option" data-correct="false">Síncrona</button>
+                        <button class="option" data-correct="true">Asíncrona</button>
+                        <button class="option" data-correct="false">Presencial</button>
+                        <button class="option" data-correct="false">Formal</button>
+                    </div>
+                </div>
+
+                <div class="question-container glass-effect" data-question-id="3" style="display:none;">
+                    <div class="question">3. ¿Cuál es un beneficio clave de la colaboración?</div>
+                    <div class="options">
+                        <button class="option" data-correct="false">Reducción de la creatividad</button>
+                        <button class="option" data-correct="false">Menor productividad</button>
+                        <button class="option" data-correct="true">Aprendizaje enriquecido</button>
+                        <button class="option" data-correct="false">Aislamiento social</button>
+                    </div>
+                </div>
+
+                <div class="question-container glass-effect" data-question-id="4" style="display:none;">
+                    <div class="question">4. ¿Qué elemento es esencial para construir colaboración efectiva?</div>
+                    <div class="options">
+                        <button class="option" data-correct="false">Desconfianza</button>
+                        <button class="option" data-correct="true">Confianza mutua</button>
+                        <button class="option" data-correct="false">Competencia agresiva</button>
+                        <button class="option" data-correct="false">Individualismo</button>
+                    </div>
+                </div>
+
+                <div class="question-container glass-effect" data-question-id="5" style="display:none;">
+                    <div class="question">5. ¿La colaboración híbrida combina qué modalidades?</div>
+                    <div class="options">
+                        <button class="option" data-correct="false">Solo virtual</button>
+                        <button class="option" data-correct="true">Presencial y virtual</button>
+                        <button class="option" data-correct="false">Solo presencial</button>
+                        <button class="option" data-correct="false">Individual y grupal</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="trivia-result" class="trivia-result glass-effect" style="display:none;"></div>
+            <div id="trivia-score" class="trivia-score glass-effect" style="display:none;"></div>
+            <button class="nav-button" id="restart-trivia-btn" style="display:none; margin-top: 20px;">
+                <i class="fas fa-redo"></i> Reiniciar Trivia
+            </button>
+        </section>
+
+        <footer class="footer glass-effect">
+            <p><strong>Organizador Gráfico sobre la Colaboración</strong></p>
+            <p>Estudiante: Cleyton González Acosta (20231-0155)</p>
+            <p>Asignatura: Colaboración en la Clase Digital</p>
+            <p>Profesor: Prof. Yelfri Antonio Rodríguez</p>
+            <p><span id="footer-date-info"></span> | <i class="fas fa-bullseye"></i> Actividad Académica Individual</p>
+        </footer>
+    </div>
+
+    <!-- Colabo-Bot Character -->
+    <div class="collabo-bot-container" id="collabo-bot-container">
+        <img src="https://png.pngtree.com/png-vector/20220622/ourmid/pngtree-chatbot-color-icon-chat-bot-png-image_5258006.png" alt="Colabo-Bot" class="collabo-bot-image">
+        <div class="collabo-bot-dialogue" id="collabo-bot-dialogue">
+            ¡Hola! Soy Colabo-Bot. ¡Listo para colaborar!
+        </div>
+    </div>
+
+    <!-- JavaScript Personalizado -->
+    <script src="script.js" defer></script>
+</body>
+</html>
